@@ -1,0 +1,19 @@
+{
+  "name": "bee-ant",
+  "version": "1.0.0",
+  "description": "pic",
+  "main": "gulpFile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamreplug/bee-ant.git"
+  },
+  "author": "team bee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamreplug/bee-ant/issues"
+  },
+  "homepage": "https://github.com/teamreplug/bee-ant#readme"
+}
