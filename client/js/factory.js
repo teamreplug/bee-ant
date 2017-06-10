@@ -1,20 +1,20 @@
-firefuse.factory('firefuseFactory', function($http) {
-  var urlBase = '/api/firefuse';
-  var firefuse = {};
+todoApp.factory('todosFactory', function($http) {
+  var urlBase = '/api/todos';
+  var _todoService = {};
 
-  firefuse.get = function() {
+  _todoService.getTodos = function() {
     return $http.get(urlBase);
   };
 
-  firefuse.save = function(todo) {
+  _todoService.saveTodo = function(todo) {
     return $http.post(urlBase, todo);
   };
 
-  firefuse.update = function(todo) {
+  _todoService.updateTodo = function(todo) {
     return $http.put(urlBase, todo);
   };
 
-  firefuse.delete = function(id) {
+  _todoService.deleteTodo = function(id) {
     return $http.delete(urlBase + '/' + id);
   };
 

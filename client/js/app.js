@@ -1,9 +1,9 @@
-firefuse = angular.module('firefuse', ['ngRoute'])
+todoApp = angular.module('todoApp', ['ngRoute'])
   .config(function($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: '/partials/home.html',
-        controller: 'firefuseCtrl'
+        templateUrl: '/partials/todo.html',
+        controller: 'TodoCtrl'
       }).otherwise({
         redirectTo: '/'
       });
