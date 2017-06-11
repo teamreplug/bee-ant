@@ -1,0 +1,207 @@
+<body class="fix-header fix-sidebar card-no-border" ng-controller="TodoCtrl">
+    <!-- Preloader -->
+    <div class="preloader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
+    </div>
+    <!-- Main wrapper -->
+    <div id="main-wrapper">
+        <header class="topbar">
+            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+                <div class="navbar-header m-b-0 hidden-sm-down">
+                    <a class="navbar-brand" href="index.html">
+                        <b>
+                            <div class="text-muted" class="dark-logo m-b-0"><i class="wi wi-sunset"></i> {{testbind}}</div>
+                        </b>
+                    </a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse">
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav mr-auto mt-md-0 m-b-10">
+                        <!-- This is  -->
+                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item hidden-sm-down">
+                            <form class="app-search p-l-20">
+                                <input type="text" class="form-control" placeholder="Type to search..."> <a class="srh-btn"><i class="ti-search"></i></a>
+                            </form>
+                        </li>
+                    </ul>
+                    <!-- ============================================================== -->
+                    <!-- User profile and search -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav my-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic m-r-5" />{{activeUser}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <div class="user-profile">
+                        <!-- User profile image -->
+                        <div class="profile-img"> <img src="../assets/images/users/1.jpg" alt="user"> </div>
+                        <!-- User profile text-->
+                        <div class="profile-text">Nanle Paul</div>
+                    </div>
+                    <ul id="sidebarnav">
+                        <li>
+                            <a href="#/" class="waves-effect"><i class="fa fa-clock-o m-r-10" aria-hidden="true"></i>Dashboard</a>
+                        </li>
+                        
+                        <li>
+                            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-note"></i><span class="hide-menu">Notes</span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li class="active"><a href="#addNote">Create new note</a></li>
+                                <li><a href="#viewNote">View notes <span class="label label-danger pull-right">5 new</span></a></li>
+                            </ul>
+                        </li>
+                        <!-- <li>
+                            <a href="#images" class="waves-effect"><i class="fa fa-font m-r-10" aria-hidden="true"></i>Images </a>
+                        </li> -->
+                        <li>
+                            <a href="#aboutus" class="waves-effect"><i class="fa fa-columns m-r-10" aria-hidden="true"></i>About us</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="waves-effect"><i class="mdi mdi-power m-r-10" aria-hidden="true"></i>Logout</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- End Left Sidebar -->
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- ============================================================== -->
+                <!-- Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <div class="row page-titles">
+                    <div class="col-md-6 col-8 align-self-center">
+                        <h3 class="text-themecolor m-b-0 m-t-0">Dashboard</h3>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+
+                    <h3 class="card-title">Recent Notes</h3>
+                    
+                <div class="row">
+                    <!-- Column -->
+                    <!-- <div class="col-lg-4">
+                        <img ng-src="{{photo.thumb}}" ng-repeat="photo in photos" />
+                        <img ng-src="{{photo.thumb}}" ng-repeat="photo in photos" />
+                    </div> -->
+                    <!-- Column -->
+                    <!-- Column -->
+                    <div class="col-lg-4" ng-repeat="photo in photos">
+                        <div class="card">
+                        <div ng-init="images()">
+                            <img class="card-img-top img-responsive" ng-src="{{photo.thumb}}" alt="Card">
+                        </div>    
+                            <div class="card-block">
+                                <ul class="list-inline font-14">
+                                    <li class="p-l-0">04/06/2017</li>
+                                    <li class="pull-right"><a href="javascript:void(0)" class="link"><em>By: Adeojo Emmanuel</em></a></li>
+                                </ul>
+                                <h3 class="font-normal">Note 006</h3>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt maxime praesentium explicabo vitae voluptas! ...
+                                </p>
+                                <a href="#" class="btn btn-danger waves-effect waves-light pull-right">Read Note</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row -->
+                <!-- ============================================================== -->
+                <!-- End PAge Content -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- footer -->
+            <!-- ============================================================== -->
+            <footer class="footer text-center">
+                <span><div id="year"></div></span>
+            </footer>
+             <script type="text/javascript">
+               year = () => {
+                    return new Date().getFullYear();
+                }
+                document.getElementById('year').innerHTML = "&copy; " + year() + " Replug Team Bee";
+            </script>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="js/waves.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!-- Flot Charts JavaScript -->
+    <script src="../assets/plugins/flot/jquery.flot.js"></script>
+    <script src="../assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="js/flot-data.js"></script>
+    <!-- ============================================================== -->
+    <!-- Style switcher -->
+    <!-- ============================================================== -->
+    <script src="../assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+</body>
+
+</html>

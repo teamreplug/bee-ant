@@ -2,19 +2,19 @@ todoApp.factory('todosFactory', function($http) {
   var urlBase = '/api/todos';
   var _todoService = {};
 
-  _todoService.getTodos = function() {
+  _todoService.get = function() {
     return $http.get(urlBase);
   };
 
-  _todoService.saveTodo = function(todo) {
+  _todoService.save = function(todo) {
     return $http.post(urlBase, todo);
   };
 
-  _todoService.updateTodo = function(todo) {
+  _todoService.update = function(todo) {
     return $http.put(urlBase, todo);
   };
 
-  _todoService.deleteTodo = function(id) {
+  _todoService.delete = function(id) {
     return $http.delete(urlBase + '/' + id);
   };
 

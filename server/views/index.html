@@ -2,21 +2,85 @@
 <html ng-app="todoApp">
 
 <head>
-  <title>Firefuse</title>
+  <title>FIREFUSE</title>
   <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/css/styles.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
+
+
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- App's Core CSS -->
+    <link href="main/css/style.css" rel="stylesheet">
+    <link href="main/css/colors/megna.css" id="theme" rel="stylesheet">
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- App's Core CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+    <link rel="stylesheet" href="main/css/wysihtml.css">
+    <link rel="stylesheet" href="main/css/dropzone.css">
+    <link rel="stylesheet" href="css/styles.css">
 
   <script type="text/javascript" src="/lib/angular/angular.min.js"></script>
   <script type="text/javascript" src="/lib/angular-route/angular-route.min.js"></script>
   <script type="text/javascript" src="/js/app.js"></script>
   <script type="text/javascript" src="/js/factory.js"></script>
   <script type="text/javascript" src="/js/controllers.js"></script>
+  <script src="assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Bootstrap tether Core JavaScript -->
+  <script src="assets/plugins/bootstrap/js/tether.min.js"></script>
+  <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <!-- slimscrollbar scrollbar JavaScript -->
+  <script src="main/js/jquery.slimscroll.js"></script>
+  <!--Wave Effects -->
+  <script src="main/js/waves.js"></script>
+  <!--Menu sidebar -->
+  <script src="main/js/sidebarmenu.js"></script>
+  <!--stickey kit -->
+  <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+  <!--Custom JavaScript -->
+  <script src="main/js/custom.min.js"></script>
+  <!-- ============================================================== -->
+  <!-- This page plugins -->
+  <!-- ============================================================== -->
+  <!-- Flot Charts JavaScript -->
+  <script src="assets/plugins/flot/jquery.flot.js"></script>
+  <script src="assets/plugins/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+  <script src="js/flot-data.js"></script>
+  <!-- ============================================================== -->
+  <!-- Style switcher -->
+  <!-- ============================================================== -->
+  <script src="assets/plugins/styleswitcher/jQuery.style.switcher.js"></script>
+
+
+
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
+    <!--Wave Effects -->
+    
+    <!--stickey kit -->
+
+    <!-- ============================================================== -->
+    <!-- This page plugins -->
+    <!-- ============================================================== -->
+    <!--Custom JavaScript -->
+    <script src="main/js/custom.min.js"></script>
+    <script src="main/js/wysihtml.js"></script>
+    <script src="main/js/bs-wysihtml.js"></script>
+    <script src="main/js/dropzone.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        $('.textarea_editor').wysihtml5();
+
+    });
+    </script>
+
 </head>
 
 <body>
-  <div class="container">
-    <h1>Firefuse</h1>
-    <hr/>
+  <div>
+   <!--  <h1>Firefuse</h1>
+    <hr/> -->
     <ng-view></ng-view>
   </div>
 

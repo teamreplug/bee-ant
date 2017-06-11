@@ -1,10 +1,14 @@
-todoApp.controller('TodoCtrl', function($rootScope, $scope, todosFactory) {
+todoApp.controller('TodoCtrl', function($rootScope, $scope, todosFactory, $http) {
 
   $scope.todos = [];
   $scope.isEditable = [];
 
+  $scope.testbind = "emmanuel";
+  $scope.send = "send";
+  console.log("trying");
+
   // get all Todos on Load
-  todosFactory.getTodos().then(function(data) {
+  todosFactory.get().then(function(data) {
     $scope.todos = data.data;
   });
 
@@ -12,21 +16,24 @@ todoApp.controller('TodoCtrl', function($rootScope, $scope, todosFactory) {
   $scope.save = function($event) {
     if ($event.which == 13 && $scope.todoInput) {
 
-      todosFactory.saveTodo({
+      todosFactory.save({
         "todo": $scope.todoInput,
         "isCompleted": false
       }).then(function(data) {
+        console.log($scope.todos);
         $scope.todos.push(data.data);
       });
       $scope.todoInput = '';
     }
   };
 
+  
+
   //update the status of the Todo
   $scope.updateStatus = function($event, _id, i) {
     var cbk = $event.target.checked;
     var _t = $scope.todos[i];
-    todosFactory.updateTodo({
+    todosFactory.update({
       _id: _id,
       isCompleted: cbk,
       todo: _t.todo
@@ -43,7 +50,7 @@ todoApp.controller('TodoCtrl', function($rootScope, $scope, todosFactory) {
   $scope.edit = function($event, i) {
     if ($event.which == 13 && $event.target.value.trim()) {
       var _t = $scope.todos[i];
-      todosFactory.updateTodo({
+      todosFactory.update({
         _id: _t._id,
         todo: $event.target.value.trim(),
         isCompleted: _t.isCompleted
@@ -61,11 +68,61 @@ todoApp.controller('TodoCtrl', function($rootScope, $scope, todosFactory) {
 
   // Delete a Todo
   $scope.delete = function(i) {
-    todosFactory.deleteTodo($scope.todos[i]._id).then(function(data) {
+    todosFactory.delete($scope.todos[i]._id).then(function(data) {
       if (data.data) {
         $scope.todos.splice(i, 1);
       }
     });
   };
+
+  // $scope.images = function(){
+  //   $http({
+  //     method : 'GET',
+  //     url : 'https://unsplash.it/list',
+  //     headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+  //   }).then(function(response){
+  //     var log = response.data;
+  //   });    
+  // };
+
+  $scope.images = function() {
+    $http({
+      method: "GET",
+      header: {
+        'Content-Type': "application/json",
+      },
+      url: "https://unsplash.it/list",
+    }).then(function(res) {
+        var totalFound = res.data.length;
+
+        var photos = [];
+
+        // for (var i = 0; i < totalFound; i++) {
+        //   var full = res.data[i].urls.full;
+        //   var regular = res.data[i].urls.regular;
+        //   var raw = res.data[i].urls.raw;
+        //   var small = res.data[i].urls.small;
+        //   var thumb = res.data[i];
+
+        //   photos.push({
+        //     full: full,
+        //     regular: regular,
+        //     raw: raw,
+        //     small: small,
+        //     thumb: thumb
+        //   });
+        // }
+
+        $scope.photos = photos;
+        console.log(photos.thumb);
+
+      },
+      function(res) {
+        console.log('error', res);
+      });
+  }
+
+  $scope.images();
+
 
 });
