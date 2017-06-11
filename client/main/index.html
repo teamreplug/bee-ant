@@ -127,16 +127,15 @@
                     <div class="col-lg-4" ng-repeat="photo in photos">
                         <div class="card">
                         <div ng-init="images()">
-                            <img class="card-img-top img-responsive" ng-src="{{photo.thumb}}" alt="Card">
+                            <img class="card-img-top img-responsive" ng-src="{{photo.imagename}}" alt="Card">
                         </div>    
                             <div class="card-block">
                                 <ul class="list-inline font-14">
                                     <li class="p-l-0">04/06/2017</li>
-                                    <li class="pull-right"><a href="javascript:void(0)" class="link"><em>By: Adeojo Emmanuel</em></a></li>
+                                    <li class="pull-right"><a href="javascript:void(0)" class="link"><em>By: {{photo.autor}}</em></a></li>
                                 </ul>
                                 <h3 class="font-normal">Note 006</h3>
                                 <p>
-                                    {{author}}
                                 </p>
                                 <a href="#" class="btn btn-danger waves-effect waves-light pull-right">Read Note</a>
                             </div>
