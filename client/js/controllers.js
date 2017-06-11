@@ -85,36 +85,36 @@ todoApp.controller('TodoCtrl', function($rootScope, $scope, todosFactory, $http)
   //   });    
   // };
 
-  $scope.images = function() {
+   $scope.images = function() {
     $http({
       method: "GET",
       header: {
         'Content-Type': "application/json",
       },
-      url: "https://unsplash.it/list",
+      url: "https://api.unsplash.com/photos/?client_id=1a28e59e586593faf822eb102154d46e8f56c830d3e5d896a0293804233f991a&per_page=30&page=1",
     }).then(function(res) {
         var totalFound = res.data.length;
 
         var photos = [];
 
-        // for (var i = 0; i < totalFound; i++) {
-        //   var full = res.data[i].urls.full;
-        //   var regular = res.data[i].urls.regular;
-        //   var raw = res.data[i].urls.raw;
-        //   var small = res.data[i].urls.small;
-        //   var thumb = res.data[i];
+        for (var i = 0; i < totalFound; i++) {
+          var full = res.data[i].urls.full;
+          var regular = res.data[i].urls.regular;
+          var raw = res.data[i].urls.raw;
+          var small = res.data[i].urls.small;
+          var thumb = res.data[i].urls.thumb;
 
-        //   photos.push({
-        //     full: full,
-        //     regular: regular,
-        //     raw: raw,
-        //     small: small,
-        //     thumb: thumb
-        //   });
-        // }
+          photos.push({
+            full: full,
+            regular: regular,
+            raw: raw,
+            small: small,
+            thumb: thumb
+          });
+        }
 
         $scope.photos = photos;
-        console.log(photos.thumb);
+        console.log(photos.thumb)
 
       },
       function(res) {
