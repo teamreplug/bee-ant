@@ -4,7 +4,7 @@
   "description": "firefuse hackerton",
   "main": "server/app.js",
   "scripts": {
-    "test": "gulp"
+    "start": "gulp"
   },
   "author": "team replug",
   "license": "replug",
