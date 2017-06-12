@@ -1,13 +1,13 @@
 {
-  "name": "TodoApp",
+  "name": "firefuse",
   "version": "0.1.0",
-  "description": "A MEAN stack Todo App",
+  "description": "firefuse hackerton",
   "main": "server/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Arvind Ravulavaru",
-  "license": "MIT",
+  "author": "team replug",
+  "license": "replug",
   "dependencies": {
     "body-parser": "^1.6.5",
     "cookie-parser": "^1.3.2",
