@@ -2,7 +2,7 @@ todoApp = angular.module('todoApp', ['ngRoute'])
   .config(function($routeProvider) {
     $routeProvider
 	.when('/', {
-	    templateUrl: '/main/index.html',
+	    templateUrl: 'main/index.html',
 	    controller: 'TodoCtrl'
 	})
 	.when('/addNote', {
